@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEVA CANADA — Campaign Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maple: #C8102E;
+    --saffron: #FF9933;
+    --gold: #C9A84C;
+    --cream: #FAF7F2;
+    --ink: #0F0E0C;
+    --muted: #6B6560;
+    --border: rgba(15,14,12,0.1);
+    --green: #1B7A40;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Syne', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+    background: #ffffff;
+  }
+
+  /* ── FIXED FLAG BAR top of page (Red | White | Orange | White | Green) ── */
+  .flag-bar {
+    display: flex;
+    width: 100%;
+    height: 12px;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 9999;
+  }
+  .flag-bar span { flex: 1; display: block; }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border);
+    background: #ffffff;
+    position: sticky;
+    top: 12px;
+    z-index: 100;
+  }
+  .top-bar-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--ink);
+  }
+  .top-bar-logo span { color: var(--maple); }
+  .top-bar-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 60px;
+  }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 24px; }
+    .hero-visual { display: none; }
+    .top-bar { padding: 14px 24px; }
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--maple);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--maple);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 700;
+    line-height: 0.95;
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+
+  .hero-title .accent { color: var(--maple); font-style: italic; }
+  .hero-title .accent-gold { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--muted);
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .tag.active {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+
+  /* ── HERO VISUAL ── */
+  .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 460px;
+  }
+
+  .orbital-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Saffron ring */
+  .ring-saffron {
+    animation: spin-slow 18s linear infinite;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+  /* White/navy ring */
+  .ring-white {
+    animation: spin-slow 28s linear infinite reverse;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+  /* Green ring */
+  .ring-green {
+    animation: spin-slow 22s linear infinite;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+  /* Maple red outer ring */
+  .ring-maple {
+    animation: spin-slow 40s linear infinite reverse;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+  /* Ashoka dots orbit */
+  .ashoka-orbit {
+    animation: spin-slow 12s linear infinite;
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+
+  @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+  .center-block {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .seva-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 86px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .seva-meaning {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* ── SECTION BASE ── */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 720px) { .container { padding: 0 24px; } }
+
+  section { padding: 90px 0; border-left: 6px solid transparent; }
+  section:nth-child(odd)  { border-left-color: #FF9933; background: #ffffff; }
+  section:nth-child(even) { border-left-color: #138808; background: #f7f4ef; }
+
+
+  .section-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 56px;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--maple);
+    letter-spacing: 2px;
+    padding-top: 6px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .section-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--muted);
+    max-width: 580px;
+  }
+
+  /* ── VISION STATEMENT ── */
+  .vision-block {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 64px 40px;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .vision-block::before {
+    content: 'SEVA';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 280px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    letter-spacing: -8px;
+    white-space: nowrap;
+  }
+
+  .vision-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3.5vw, 38px);
+    font-style: italic;
+    line-height: 1.45;
+    max-width: 780px;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .vision-quote .highlight { color: var(--saffron); }
+  .vision-attribution {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: rgba(250,247,242,0.4);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── CORE BELIEFS ── */
+  .beliefs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .belief-item {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 28px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.3s;
+  }
+  .belief-item:first-child { border-top: 1px solid var(--border); }
+  .belief-item:hover { padding-left: 12px; }
+
+  .belief-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--maple);
+    letter-spacing: 1px;
+    padding-top: 4px;
+  }
+
+  .belief-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .belief-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  /* ── PROGRAMS ── */
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .program-card {
+    border: 1px solid var(--border);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    background: #ffffff;
+  }
+  .program-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .program-card.maple::after { background: var(--maple); }
+  .program-card.gold::after { background: var(--gold); }
+  .program-card.saffron::after { background: var(--saffron); }
+  .program-card.green::after { background: var(--green); }
+  .program-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(15,14,12,0.08); }
+  .program-card:hover::after { transform: scaleX(1); }
+
+  .program-icon { font-size: 32px; margin-bottom: 20px; }
+
+  .program-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .program-name-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+  .program-card.maple .program-name-tag { background: rgba(200,16,46,0.08); color: var(--maple); }
+  .program-card.gold .program-name-tag { background: rgba(201,168,76,0.1); color: #8B6914; }
+  .program-card.saffron .program-name-tag { background: rgba(255,153,51,0.1); color: #b55c00; }
+  .program-card.green .program-name-tag { background: rgba(27,122,64,0.08); color: var(--green); }
+
+  .program-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .program-actions {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .program-actions li {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .program-actions li::before {
+    content: '–';
+    flex-shrink: 0;
+    color: var(--maple);
+  }
+
+  /* ── CANADIAN VALUES ── */
+  .values-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 720px) { .values-split { grid-template-columns: 1fr; } }
+
+  .values-column h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .value-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .value-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .value-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  .value-note {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PHASES TIMELINE ── */
+  .phases-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .phase-block {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  @media (max-width: 720px) { .phase-block { grid-template-columns: 1fr; gap: 16px; } }
+  .phase-block:first-child { border-top: 1px solid var(--border); }
+
+  .phase-left {}
+  .phase-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--maple);
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .phase-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .phase-right {}
+  .phase-headline {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .phase-body {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .phase-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .phase-items li {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
+  }
+  .phase-items li::before {
+    content: '→';
+    color: var(--saffron);
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+
+  /* ── PARTNERSHIPS ── */
+  .partner-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .partner-type {
+    border: 1px solid var(--border);
+    padding: 24px 20px;
+    transition: all 0.25s;
+  }
+  .partner-type:hover { border-color: var(--gold); background: rgba(201,168,76,0.03); }
+
+  .pt-icon { font-size: 22px; margin-bottom: 12px; }
+  .pt-name {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+  .pt-example {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+  }
+
+  /* ── NARRATIVE TRACK ── */
+  .narrative-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 12px;
+  }
+  @media (max-width: 720px) { .narrative-grid { grid-template-columns: 1fr; } }
+
+  .narrative-cell {
+    background: #ffffff;
+    padding: 32px 28px;
+  }
+
+  .nc-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nc-label.from { color: var(--maple); }
+  .nc-label.from::before { content: '✕'; }
+  .nc-label.to { color: var(--green); }
+  .nc-label.to::before { content: '✓'; }
+
+  .narrative-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .narrative-items li {
+    font-size: 14px;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .narrative-items li .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .narrative-cell:first-child .bullet { background: rgba(200,16,46,0.4); }
+  .narrative-cell:last-child .bullet { background: var(--green); }
+  .narrative-cell:first-child li { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(200,16,46,0.3); }
+  .narrative-cell:last-child li { color: var(--ink); }
+
+  /* ── MANTRA ── */
+  .mantra-section {
+    background: #138808;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .mantra-hindi {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--saffron);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .mantra-english {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.5vw, 24px);
+    color: rgba(250,247,242,0.6);
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+  .mantra-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+  }
+
+  .three-words {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .word-block { text-align: center; }
+  .word-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .word-small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(250,247,242,0.35);
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 36px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-flag {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .flag-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ── PRINT HINT ── */
+  @media print {
+    .top-bar { position: static; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<!-- FIVE-BAND FLAG BAR -->
+<div class="flag-bar"><span style="background:#C8102E"></span><span style="background:#ffffff;border-top:1px solid #ddd;border-bottom:1px solid #ddd"></span><span style="background:#FF9933"></span><span style="background:#ffffff;border-top:1px solid #ddd;border-bottom:1px solid #ddd"></span><span style="background:#138808"></span></div>
+<nav class="top-bar">
+  <div class="top-bar-logo">SEVA<span>•</span>CANADA</div>
+  <div class="top-bar-meta">Campaign Strategy v2 · Vernon BC · 2026</div>
+</nav>
+
+<!-- HERO -->
+<div style="max-width:1100px; margin:0 auto; background: linear-gradient(90deg, #FF9933 0px, #FF9933 6px, #ffffff 6px, #ffffff calc(100% - 6px), #C8102E calc(100% - 6px), #C8102E 100%);">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Full Campaign Strategy</div>
+      <h1 class="hero-title">
+        Give.<br>
+        <span class="accent">Serve.</span><br>
+        <span class="accent-gold">Belong.</span>
+      </h1>
+      <p class="hero-sub">A campaign for Indian-Canadians to embrace Canadian values, lead social causes, give back without discrimination, and build a narrative the next generation will be proud of.</p>
+      <div class="hero-tags">
+        <span class="tag active">Social Causes</span>
+        <span class="tag active">Community Giveback</span>
+        <span class="tag active">Canadian Values</span>
+        <span class="tag">Cross-Community</span>
+        <span class="tag">Positive Narrative</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Tricolor + Maple orbital SVG -->
+      <svg class="orbital-svg" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Saffron ring gradient -->
+          <linearGradient id="saffGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF9933" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#FF9933" stop-opacity="0.9"/>
+            <stop offset="70%" stop-color="#FF9933" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#FF9933" stop-opacity="0"/>
+          </linearGradient>
+          <!-- Green ring gradient -->
+          <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#138808" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#138808" stop-opacity="0.8"/>
+            <stop offset="70%" stop-color="#138808" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#138808" stop-opacity="0"/>
+          </linearGradient>
+          <!-- Maple ring gradient -->
+          <linearGradient id="mapleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C8102E" stop-opacity="0.05"/>
+            <stop offset="40%" stop-color="#C8102E" stop-opacity="0.25"/>
+            <stop offset="60%" stop-color="#C8102E" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#C8102E" stop-opacity="0.05"/>
+          </linearGradient>
+          <!-- Glow filter -->
+          <filter id="glow-saffron" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+          <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+          <filter id="glow-maple" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+          <filter id="center-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="18" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+        </defs>
+
+        <!-- Outermost maple red ring — slow reverse spin -->
+        <g class="ring-maple" style="transform-origin:230px 230px">
+          <circle cx="230" cy="230" r="210" fill="none" stroke="url(#mapleGrad)" stroke-width="2.5" stroke-dasharray="8 18" filter="url(#glow-maple)"/>
+          <!-- Maple leaf dots at cardinal points -->
+          <circle cx="230" cy="22" r="5" fill="#C8102E" opacity="0.4"/>
+          <circle cx="438" cy="230" r="5" fill="#C8102E" opacity="0.4"/>
+          <circle cx="230" cy="438" r="5" fill="#C8102E" opacity="0.4"/>
+          <circle cx="22" cy="230" r="5" fill="#C8102E" opacity="0.4"/>
+          <!-- diagonal dots -->
+          <circle cx="378" cy="82" r="3" fill="#C8102E" opacity="0.25"/>
+          <circle cx="378" cy="378" r="3" fill="#C8102E" opacity="0.25"/>
+          <circle cx="82" cy="378" r="3" fill="#C8102E" opacity="0.25"/>
+          <circle cx="82" cy="82" r="3" fill="#C8102E" opacity="0.25"/>
+        </g>
+
+        <!-- Indian tricolor — 3 concentric spinning rings -->
+
+        <!-- Saffron ring -->
+        <g class="ring-saffron" style="transform-origin:230px 230px">
+          <circle cx="230" cy="230" r="168" fill="none" stroke="#FF9933" stroke-width="3" stroke-dasharray="60 12" opacity="0.7" filter="url(#glow-saffron)"/>
+          <!-- Saffron accent dots -->
+          <circle cx="230" cy="64" r="5" fill="#FF9933" opacity="0.9"/>
+          <circle cx="230" cy="396" r="5" fill="#FF9933" opacity="0.9"/>
+          <circle cx="64" cy="230" r="5" fill="#FF9933" opacity="0.9"/>
+          <circle cx="396" cy="230" r="5" fill="#FF9933" opacity="0.9"/>
+        </g>
+
+        <!-- Navy/white middle ring (Ashoka blue) -->
+        <g class="ring-white" style="transform-origin:230px 230px">
+          <circle cx="230" cy="230" r="132" fill="none" stroke="#000080" stroke-width="2" stroke-dasharray="4 8" opacity="0.18"/>
+          <circle cx="230" cy="230" r="132" fill="none" stroke="rgba(0,0,128,0.08)" stroke-width="12"/>
+          <!-- 24 Ashoka spokes as tiny marks -->
+          <g opacity="0.35">
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(0,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(15,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(30,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(45,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(60,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(75,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(90,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(105,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(120,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(135,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(150,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(165,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(180,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(195,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(210,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(225,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(240,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(255,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(270,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(285,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(300,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(315,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(330,230,230)"/>
+            <line x1="230" y1="100" x2="230" y2="110" stroke="#000080" stroke-width="2" transform="rotate(345,230,230)"/>
+          </g>
+        </g>
+
+        <!-- Green ring -->
+        <g class="ring-green" style="transform-origin:230px 230px">
+          <circle cx="230" cy="230" r="96" fill="none" stroke="#138808" stroke-width="3" stroke-dasharray="45 10" opacity="0.65" filter="url(#glow-green)"/>
+          <!-- Green accent dots -->
+          <circle cx="230" cy="136" r="4.5" fill="#138808" opacity="0.85"/>
+          <circle cx="230" cy="324" r="4.5" fill="#138808" opacity="0.85"/>
+          <circle cx="136" cy="230" r="4.5" fill="#138808" opacity="0.85"/>
+          <circle cx="324" cy="230" r="4.5" fill="#138808" opacity="0.85"/>
+        </g>
+
+        <!-- Center glow aura -->
+        <circle cx="230" cy="230" r="54" fill="rgba(255,153,51,0.06)" filter="url(#center-glow)"/>
+        <circle cx="230" cy="230" r="54" fill="rgba(200,16,46,0.04)" filter="url(#center-glow)"/>
+
+        <!-- Inner solid circle — canvas for text -->
+        <circle cx="230" cy="230" r="58" fill="rgba(250,247,242,0.95)"/>
+        <circle cx="230" cy="230" r="58" fill="none" stroke="#000080" stroke-width="1" opacity="0.12"/>
+      </svg>
+
+      <div class="center-block">
+        <div class="seva-word">सेवा</div>
+        <div class="seva-meaning">Seva — Selfless Service</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISION STATEMENT -->
+<div class="vision-block" style="background:#C8102E;">
+  <p class="vision-quote">
+    "We are not here to <span class="highlight">demand respect</span> — we are here to <span class="highlight">earn it</span>, through how we serve, how we give, and how we show up for every Canadian — no matter where they're from."
+  </p>
+  <div class="vision-attribution">Seva Canada · Campaign Manifesto</div>
+</div>
+
+<!-- CORE BELIEFS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div>
+        <h2 class="section-title">What We Stand For</h2>
+        <p class="section-body">These are the non-negotiable beliefs that drive every program, post, and partnership. Everything the campaign does must be rooted in at least one of these.</p>
+      </div>
+    </div>
+
+    <div class="beliefs-list">
+      <div class="belief-item">
+        <div class="belief-num">B-01</div>
+        <div>
+          <h3 class="belief-title">We embrace Canadian values — fully, not selectively</h3>
+          <p class="belief-desc">Equality, inclusion, multiculturalism, rule of law, freedom of expression — these are not compromises of our identity; they are extensions of it. Indians who thrive here understand that belonging is a two-way commitment.</p>
+        </div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-num">B-02</div>
+        <div>
+          <h3 class="belief-title">We give back without keeping score</h3>
+          <p class="belief-desc">Seva — selfless service — is the oldest Indian value there is. We serve food banks, clean parks, mentor youth, and support local causes because it's the right thing to do. Not for visibility. Not for credit.</p>
+        </div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-num">B-03</div>
+        <div>
+          <h3 class="belief-title">We help everyone — no ethnic filter</h3>
+          <p class="belief-desc">If we only serve the Indian community, we confirm that we keep to ourselves. True integration means standing in line to help a First Nations elder, a Ukrainian refugee, or a single mother in Salmon Arm.</p>
+        </div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-num">B-04</div>
+        <div>
+          <h3 class="belief-title">We amplify Indian-Canadians doing good — loudly</h3>
+          <p class="belief-desc">For every negative headline about Indians in Canada, there are fifty stories of generosity, innovation, and leadership that go untold. We become the counter-narrative press team.</p>
+        </div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-num">B-05</div>
+        <div>
+          <h3 class="belief-title">We collaborate with any good cause, any people</h3>
+          <p class="belief-desc">Indigenous reconciliation, LGBTQ+ inclusion, food security, environmental work — if the cause is good and the intent is genuine, we show up. Alliances are how movements grow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANADIAN VALUES -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div>
+        <h2 class="section-title">Canadian Values — The Bridge We Build On</h2>
+        <p class="section-body">Indians have deep cultural roots. Canada has deep civic roots. This campaign shows they are not in conflict — they are complementary. Here is how we teach that bridge within the Indian community.</p>
+      </div>
+    </div>
+
+    <div class="values-split">
+      <div class="values-column">
+        <h3>Canadian Values We Champion</h3>
+        <div class="value-row">
+          <div class="value-icon">🍁</div>
+          <div>
+            <div class="value-name">Multiculturalism</div>
+            <div class="value-note">Canada was built on difference. We celebrate our heritage while celebrating others' too.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">⚖️</div>
+          <div>
+            <div class="value-name">Equality & Human Rights</div>
+            <div class="value-note">We stand against discrimination — including casteism, colourism, and patriarchy within our own community.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">🤲</div>
+          <div>
+            <div class="value-name">Community Responsibility</div>
+            <div class="value-note">Active participation in civic life — voting, volunteering, mentoring — is part of being Canadian.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">🌿</div>
+          <div>
+            <div class="value-name">Environmental Stewardship</div>
+            <div class="value-note">Canadians care deeply about nature. Indians must too — and Indian philosophy of harmony with earth supports this.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">🏛️</div>
+          <div>
+            <div class="value-name">Indigenous Reconciliation</div>
+            <div class="value-note">As settlers on this land, Indians have a responsibility to understand and support First Nations communities.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="values-column">
+        <h3>How We Teach These Inside the Community</h3>
+        <div class="value-row">
+          <div class="value-icon">📚</div>
+          <div>
+            <div class="value-name">New Arrival Orientation</div>
+            <div class="value-note">"Welcome to Canada" workshops for new Indian immigrants — cultural norms, civic rights, and responsibilities.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">💬</div>
+          <div>
+            <div class="value-name">Open Conversations</div>
+            <div class="value-note">Safe, honest discussions within the community about casteism, gender discrimination, and integration challenges.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">🎙️</div>
+          <div>
+            <div class="value-name">Speaker Series</div>
+            <div class="value-note">Indian-Canadians who model civic engagement sharing how they blend heritage with Canadian identity.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">🏫</div>
+          <div>
+            <div class="value-name">Youth Education</div>
+            <div class="value-note">Work with schools to educate Indian-Canadian youth on history, reconciliation, and civic leadership.</div>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-icon">📰</div>
+          <div>
+            <div class="value-name">Social Media Literacy</div>
+            <div class="value-note">Teach Indians to stop sharing divisive content — to be critical consumers and responsible digital citizens.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div>
+        <h2 class="section-title">Signature Social Programs</h2>
+        <p class="section-body">These are the tangible, ground-level initiatives the campaign runs. Each program is designed to create visible, real impact — not just awareness.</p>
+      </div>
+    </div>
+
+    <div class="programs-grid">
+
+      <div class="program-card maple">
+        <div class="program-icon">🫙</div>
+        <div class="program-name-tag">Flagship Program</div>
+        <h3 class="program-title">Seva Table</h3>
+        <p class="program-desc">Monthly free community meals open to everyone — no membership, no Indian-only tables. Partner with local food banks, churches, and mosques. Let food do the unifying.</p>
+        <ul class="program-actions">
+          <li>Monthly community dinners in Vernon/Kelowna</li>
+          <li>Partner with existing food banks and shelters</li>
+          <li>Feature different Indian regional cuisines each time</li>
+          <li>Invite non-Indian co-hosts every session</li>
+        </ul>
+      </div>
+
+      <div class="program-card gold">
+        <div class="program-icon">🌱</div>
+        <div class="program-name-tag">Environment Program</div>
+        <h3 class="program-title">Green Hands</h3>
+        <p class="program-desc">Indians leading environmental action in the Okanagan. Tree planting, trail cleanups, and partnerships with BC environmental organizations. Connects seva with Canadian love of nature.</p>
+        <ul class="program-actions">
+          <li>Quarterly Okanagan cleanup drives</li>
+          <li>Tree planting on Diwali — "A tree for every lamp lit"</li>
+          <li>Partner with Okanagan Watershed Stewardship Council</li>
+          <li>Document and share impact publicly</li>
+        </ul>
+      </div>
+
+      <div class="program-card saffron">
+        <div class="program-icon">🎓</div>
+        <div class="program-name-tag">Youth Program</div>
+        <h3 class="program-title">Roots & Routes</h3>
+        <p class="program-desc">Mentorship for Indian-Canadian youth — connecting them to Indian heritage AND Canadian opportunity. Workshops, career mentors, and leadership training.</p>
+        <ul class="program-actions">
+          <li>Monthly mentorship circles (university & high school)</li>
+          <li>Resume, interview, and professional skills workshops</li>
+          <li>Pair Indian youth with First Nations youth for exchange</li>
+          <li>Annual "Young Indian-Canadian of the Year" award</li>
+        </ul>
+      </div>
+
+      <div class="program-card green">
+        <div class="program-icon">🤝</div>
+        <div class="program-name-tag">Reconciliation Program</div>
+        <h3 class="program-title">Two Roots, One Land</h3>
+        <p class="program-desc">A deliberate program to build relationships between Indian-Canadians and Indigenous communities. Learn the land's true history — and contribute to healing it.</p>
+        <ul class="program-actions">
+          <li>Host Indigenous speakers at Indian community events</li>
+          <li>Participate in National Day for Truth and Reconciliation</li>
+          <li>Support Indigenous-owned businesses publicly</li>
+          <li>Land acknowledgement education within Indian community</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NARRATIVE SHIFT -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div>
+        <h2 class="section-title">The Narrative We're Building</h2>
+        <p class="section-body">Right now the story being told about Indians in Canada is shaped by headlines. We change that by flooding the zone with real stories of service, integration, and leadership.</p>
+      </div>
+    </div>
+
+    <div class="narrative-grid">
+      <div class="narrative-cell">
+        <div class="nc-label from">The Narrative We're Replacing</div>
+        <ul class="narrative-items">
+          <li><span class="bullet"></span>Indians keep to themselves</li>
+          <li><span class="bullet"></span>Indians only look out for each other</li>
+          <li><span class="bullet"></span>Indians bring conflict from back home</li>
+          <li><span class="bullet"></span>Indians don't integrate or adapt</li>
+          <li><span class="bullet"></span>Indians are just economic migrants</li>
+        </ul>
+      </div>
+      <div class="narrative-cell">
+        <div class="nc-label to">The Narrative We're Building</div>
+        <ul class="narrative-items">
+          <li><span class="bullet"></span>Indians are pillars of their communities</li>
+          <li><span class="bullet"></span>Indians serve everyone without discrimination</li>
+          <li><span class="bullet"></span>Indians model Canada's multicultural promise</li>
+          <li><span class="bullet"></span>Indians honour Canadian values while celebrating heritage</li>
+          <li><span class="bullet"></span>Indians are invested Canadians building this country's future</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIPS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div>
+        <h2 class="section-title">Who We Partner With</h2>
+        <p class="section-body">The rule is simple: if the cause is good and the people are genuine, we collaborate. No ideological gatekeeping. No exclusive Indian-only events.</p>
+      </div>
+    </div>
+
+    <div class="partner-types">
+      <div class="partner-type">
+        <div class="pt-icon">🏘️</div>
+        <div class="pt-name">Local Civic Orgs</div>
+        <div class="pt-example">Vernon Community Fridge · Greater Vernon Advisory Committee · Community Futures</div>
+      </div>
+      <div class="partner-type">
+        <div class="pt-icon">🌿</div>
+        <div class="pt-name">Environmental Groups</div>
+        <div class="pt-example">Okanagan Watershed Stewards · BC Nature · Land Conservancy of BC</div>
+      </div>
+      <div class="partner-type">
+        <div class="pt-icon">🧡</div>
+        <div class="pt-name">Indigenous Organizations</div>
+        <div class="pt-example">Okanagan Nation Alliance · En'owkin Centre · Syilx cultural groups</div>
+      </div>
+      <div class="partner-type">
+        <div class="pt-icon">🕌</div>
+        <div class="pt-name">Multi-Faith Community</div>
+        <div class="pt-example">Local churches, mosques, gurdwaras, temples — interfaith meals and causes</div>
+      </div>
+      <div class="partner-type">
+        <div class="pt-icon">🎓</div>
+        <div class="pt-name">Schools & Colleges</div>
+        <div class="pt-example">Okanagan College · SD22 Schools · Youth mentorship programs</div>
+      </div>
+      <div class="partner-type">
+        <div class="pt-icon">🏥</div>
+        <div class="pt-name">Health & Social Services</div>
+        <div class="pt-example">Interior Health · Food banks · Domestic violence shelters</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div>
+        <h2 class="section-title">12-Month Execution Plan</h2>
+        <p class="section-body">Three phases. Each builds on the last. The goal is to be visibly serving the community within 90 days of launch.</p>
+      </div>
+    </div>
+
+    <div class="phases-wrap">
+      <div class="phase-block">
+        <div class="phase-left">
+          <div class="phase-period">Months 1–3</div>
+          <div class="phase-name">Lay<br>the<br>Ground</div>
+        </div>
+        <div class="phase-right">
+          <div class="phase-headline">Build the core, establish identity, run the first Seva Table</div>
+          <p class="phase-body">Before going public, assemble a founding team of 8–12 Indian-Canadians from diverse regional and religious backgrounds. Lock in campaign name, visual identity, social channels, and a simple one-page manifesto. Then run your first community meal within 90 days — action first, content second.</p>
+          <ul class="phase-items">
+            <li>Recruit founding team — specifically diverse: Punjabi, Malayali, Gujarati, Tamil, Bengali</li>
+            <li>Register as a society or non-profit (BC Societies Act) for credibility and funding eligibility</li>
+            <li>Launch Instagram + Facebook + YouTube with 10 foundational posts</li>
+            <li>Host first Seva Table community meal — open to all, partner with one non-Indian org</li>
+            <li>Reach out to Okanagan Nation Alliance to begin reconciliation conversation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-block">
+        <div class="phase-left">
+          <div class="phase-period">Months 4–7</div>
+          <div class="phase-name">Build<br>Momentum</div>
+        </div>
+        <div class="phase-right">
+          <div class="phase-headline">Programs running, content flowing, partnerships forming</div>
+          <p class="phase-body">Now the engine is running. Seva Table is monthly. Green Hands runs its first cleanup. Content tells real stories. Media starts paying attention.</p>
+          <ul class="phase-items">
+            <li>Launch "Indians Doing Good" — weekly social media spotlight on Indian-Canadians in service</li>
+            <li>First Green Hands cleanup drive — target Okanagan Lake shoreline or a local trail</li>
+            <li>Host "What Does It Mean to Be Indian-Canadian?" — community panel open to all</li>
+            <li>Approach Vernon Morning Star and CBC Okanagan with a story pitch</li>
+            <li>Launch new arrival orientation workshop — partner with settlement services</li>
+            <li>Begin Roots & Routes mentorship with Okanagan College students</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-block">
+        <div class="phase-left">
+          <div class="phase-period">Months 8–12</div>
+          <div class="phase-name">Become<br>a<br>Force</div>
+        </div>
+        <div class="phase-right">
+          <div class="phase-headline">A major public event, media presence, and a replicable model</div>
+          <p class="phase-body">By year end, Seva Canada is a recognized name in the Okanagan. Other cities are asking how to replicate it. The Indian community's reputation is visibly shifting.</p>
+          <ul class="phase-items">
+            <li>Host the first <strong>Seva Canada Day</strong> — public festival of service, food, culture, and community</li>
+            <li>Announce first <strong>Seva Canada Community Award</strong> — recognizing non-Indian ally of the year</li>
+            <li>Publish impact report: meals served, trees planted, hours volunteered, partnerships formed</li>
+            <li>Pitch campaign model to Indian community associations in Kelowna, Kamloops, and Penticton</li>
+            <li>Begin Year 2 planning with double the programs and a grant application to Canadian Heritage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANTRA -->
+<div class="mantra-section" style="background:#138808;">
+  <div class="mantra-hindi">सेवा परमो धर्मः</div>
+  <div class="mantra-english">"Service is the highest duty" — adapted from the Mahabharata</div>
+  <div class="mantra-divider"></div>
+  <div class="three-words">
+    <div class="word-block">
+      <div class="word-big">Serve</div>
+      <div class="word-small">Everyone</div>
+    </div>
+    <div class="word-block">
+      <div class="word-big">Build</div>
+      <div class="word-small">Together</div>
+    </div>
+    <div class="word-block">
+      <div class="word-big">Belong</div>
+      <div class="word-small">Fully</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#C8102E; color:#ffffff; border-top:none;">
+  <div style="color:rgba(255,255,255,0.85);">SEVA CANADA · Full Campaign Strategy · Vernon, BC · 2026</div>
+  <div class="footer-flag">
+    <div class="flag-dot" style="background:#FF9933;"></div>
+    <div class="flag-dot" style="background:#1C1C1E;"></div>
+    <div class="flag-dot" style="background:#138808;"></div>
+    <span style="margin-left:6px;">Indian–Canadian · United in Service</span>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
